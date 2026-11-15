@@ -831,3 +831,10 @@ body{font-size:17.5px;line-height:1.55}
 .lp-filtro button{font-size:14px!important;padding:4px 13px!important}
 .lp-list{max-height:430px!important}
 .lp-list{gap:2px;scrollbar-width:thin}
+/* letra aún más grande en "Ahora en el taller" */
+.lp-g .lp-m .nm{font-size:20px!important}
+.lp-g .lp-m .gm,.lp-g .lp-m .vc{font-size:15px!important}
+.lp-g .lp-m .face{width:44px!important;height:44px!important;font-size:18px!important}
+.lp-gh{font-size:18px!important}
+.lp-filtro button{font-size:15px!important}
+.lp-foot{font-size:16px!important}
