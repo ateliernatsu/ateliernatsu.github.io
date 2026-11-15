@@ -126,6 +126,13 @@ const EVENTOS_EJEMPLO = [
 ];
 
 // 8) Noticias de WoW Forever (la más nueva primero) · imagen:"img/..." opcional
+// Objetivos de la hermandad (portada). Para actualizar, cambia "actual".
+//   emoji, titulo, actual, meta, unidad, nota (opcional)
+const OBJETIVOS = [
+  { emoji:"💰", titulo:"Banco de la hermandad", actual:0, meta:100, unidad:"oros",
+    nota:"Cada moneda cuenta: deposítala en el banco de la hermandad ✿" },
+];
+
 const NOTICIAS = [
   { fecha:"2026-11-05", etiqueta:"Lanzamiento", fuente:"Blizzard",
     titulo:"WoW Forever ya está abierto en todo el mundo",

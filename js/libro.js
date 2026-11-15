@@ -450,6 +450,17 @@ const fmtNewsDate = s => s ? new Intl.DateTimeFormat('es-ES',{day:'numeric',mont
 const postHTML = (n,i) => `<a class="card post" href="${esc(n.url)}" target="_blank" rel="noopener"><span class="tape ${['','y','b','g'][i%4]}" style="z-index:2"></span>
     <div class="art">${n.imagen?`<img src="${esc(n.imagen)}" alt="">`:newsArt(n.etiqueta, i+n.titulo.length)}<span class="tg">${esc(n.etiqueta)}</span></div>
     <div class="body"><div class="meta">${[fmtNewsDate(n.fecha), esc(n.fuente)].filter(Boolean).join(' · ')}</div><h4>${esc(n.titulo)}</h4><p>${esc(n.resumen)}</p><span class="more">Leer en ${esc(n.fuente.replace(/ \(.*\)/,''))} →</span></div></a>`;
+function buildObjetivos(){
+  const box = $('objetivos'); if (!box || typeof OBJETIVOS === 'undefined' || !OBJETIVOS.length) return;
+  box.innerHTML = `<h3 class="obj-h">🎯 Objetivos de la hermandad</h3>` + OBJETIVOS.map(o => {
+    const pct = Math.max(0, Math.min(100, o.meta ? o.actual / o.meta * 100 : 0));
+    const hecho = pct >= 100;
+    return `<div class="obj${hecho?' hecho':''}">
+      <div class="obj-t"><span>${esc(o.emoji||'✦')} ${esc(o.titulo)}</span><b>${(+o.actual).toLocaleString('es')} / ${(+o.meta).toLocaleString('es')} ${esc(o.unidad||'')}</b></div>
+      <div class="obj-bar"><i style="width:${pct}%"></i><span>${hecho?'¡Conseguido! ✿':Math.round(pct)+' %'}</span></div>
+      ${o.nota?`<div class="obj-n">${esc(o.nota)}</div>`:''}</div>`;
+  }).join('');
+}
 function buildNews(){
   const head = `<span class="eyebrow">Noticias</span><h2>Lo último de <span class="pk">WoW Forever</span></h2><p class="muted">Resumido por el taller, con enlace a la fuente original.</p>`;
   const foot = `<p class="hand">Más en <a href="https://news.blizzard.com/es-es/world-of-warcraft" target="_blank" rel="noopener" style="color:var(--pink)">Blizzard News</a> ✦</p>`;
@@ -508,7 +519,7 @@ DECO.forEach(([id, side, img, css]) => {
 /* ==========================================================
    EL LIBRO: abrir, pasar páginas, post-its
    ========================================================== */
-buildMemberSpreads(); buildNews();
+buildMemberSpreads(); buildNews(); buildObjetivos();
 const SPREADS = [...document.querySelectorAll('.spread')];
 const PAGES = []; SPREADS.forEach((sp,i) => { PAGES.push({i,side:0}); if (!sp.classList.contains('wide')) PAGES.push({i,side:1}); });
 let cur = 0, side = 0, busy = false;
