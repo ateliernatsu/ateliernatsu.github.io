@@ -821,8 +821,13 @@ body{font-size:17.5px;line-height:1.55}
 .lp-gh b{margin-left:auto;font:800 11px var(--body);background:var(--rc);color:#fff;border-radius:999px;padding:0 7px}
 .lp-em{width:22px;height:22px;object-fit:contain;font-size:16px;line-height:22px;text-align:center}
 .lp-fv{font-size:13px}
-.lp-g .lp-m{padding:3px 6px;gap:10px}
-.lp-g .lp-m .face{width:32px;height:32px;font-size:14px}
-.lp-g .lp-m .nm{font-size:14px}
-.lp-g .lp-m .gm{font-size:11.5px}
+.lp-g .lp-m{padding:4px 6px;gap:12px}
+.lp-g .lp-m .face{width:40px;height:40px;font-size:16px}
+.lp-g .lp-m .nm{font-size:18px}
+.lp-g .lp-m .gm{font-size:14px}
+.lp-g .lp-m .vc{font-size:14px}
+.lp-gh{font-size:16px!important}
+.lp-em{width:26px!important;height:26px!important}
+.lp-filtro button{font-size:14px!important;padding:4px 13px!important}
+.lp-list{max-height:430px!important}
 .lp-list{gap:2px;scrollbar-width:thin}

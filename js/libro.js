@@ -125,9 +125,9 @@ function renderLive(w, demo){
   for (const k in LIVE_VOICE) delete LIVE_VOICE[k];
   (w.channels||[]).forEach(ch => LIVE_VOICE[norm(ch.name)] = members.filter(m => m.channel_id === ch.id));
   const wow = members.filter(m => /warcraft/i.test(m.game?.name||'')).length;
-  const nForever = members.filter(m => m.forever).length;
+  const nForever = members.filter(m => m.forever || m.rango === 'maestra').length;
   const filtro = LIVE_FILTRO === 'forever' && nForever ? 'forever' : 'todos';
-  const vis = filtro === 'forever' ? members.filter(m => m.forever) : members;
+  const vis = filtro === 'forever' ? members.filter(m => m.forever || m.rango === 'maestra') : members;
   const orden = [...RANKS].reverse();   // Maestra primero
   const grupos = orden.map(r => ({r, ms: vis.filter(m => m.rango === r.id)}))
     .concat([{r:{id:'', nombre:'Sin rango aún', icono:'✨', color:'#bbb'}, ms: vis.filter(m => !m.rango)}]).filter(g => g.ms.length);
