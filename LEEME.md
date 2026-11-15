@@ -45,3 +45,9 @@ Cómpralo en un registrador y, en GitHub → Settings → Pages → *Custom doma
 
 ## Añadir un miembro
 Cada persona se hace su carnet en el libro (La Hermandad → Tu carnet) y pulsa **Copiar mi ficha**. Te pasa ese texto por Discord: pégalo dentro de `MEMBERS` en `js/datos.js`. Si te manda foto, guárdala en `img/` con el nombre que pone la ficha. Cada miembro tiene su propia hoja en el libro.
+
+## "Ahora en el taller" por rangos
+El bot (el mismo del calendario) guarda `taller.json` con el rango y la etiqueta 🍁 Forever
+de cada miembro. Reconoce los roles por su nombre: Maestra del Atelier, Guardián del Atelier,
+Artífice, Artesano, Aprendiz, Visitante de Verano y cualquier rol que contenga "Forever".
+Necesita **Server Members Intent** activado en el Developer Portal → tu app → Bot.

@@ -89,41 +89,68 @@ const LIVE_EJEMPLO = {
   presence_count: 7,
   channels: [{id:"v1", name:"✦La hoguerita✧"},{id:"v3", name:"✦La Trastienda✧"},{id:"v4", name:"✦Expedición I✧"},{id:"v2", name:"✦la-siesta✧"}],
   members: [
+    {username:"Fairy Heart", status:"online", channel_id:"v1", game:{name:"World of Warcraft"}},
     {username:"Rainfell", status:"online", channel_id:"v1", game:{name:"World of Warcraft"}},
-    {username:"Kairi", status:"online", channel_id:"v1", game:{name:"World of Warcraft"}},
-    {username:"Ventus", status:"online", channel_id:"v4", game:{name:"World of Warcraft"}},
+    {username:"Kairi", status:"online", channel_id:"v4", game:{name:"World of Warcraft"}},
+    {username:"Ventus", status:"online", game:{name:"World of Warcraft"}},
     {username:"Naminé", status:"idle", channel_id:"v2"},
-    {username:"Roxas", status:"online", game:{name:"World of Warcraft"}},
     {username:"Lea", status:"dnd"},
     {username:"Terra", status:"idle"}
   ]
 };
+// Rangos de ejemplo (de verdad salen de taller.json, que escribe el bot)
+const TALLER_EJEMPLO = [
+  {nombres:["Fairy Heart"], rango:"maestra", forever:true},
+  {nombres:["Rainfell"], rango:"guardian", forever:true},
+  {nombres:["Kairi"], rango:"artifice", forever:true},
+  {nombres:["Ventus"], rango:"artesano", forever:true},
+  {nombres:["Naminé"], rango:"aprendiz", forever:false},
+  {nombres:["Lea"], rango:"visitante", forever:true}
+];
+let TALLER = null, LIVE_W = null, LIVE_DEMO = true, LIVE_FILTRO = 'forever';
 const STATUS_COL = { online:"#4fae7f", idle:"#e0a82e", dnd:"#e0435c" };
 const FACE_COLS = ["#d0578a","#6c8fd8","#9a7ad0","#c9974a","#6f9a6a","#b23d6c","#4b6cf2","#ea8a3f"];
 const faceCol = n => FACE_COLS[[...n].reduce((a,c)=>a+c.charCodeAt(0),0) % FACE_COLS.length];
 const LIVE_VOICE = {};
+function fichaTaller(nombre){
+  const lista = TALLER || (LIVE_DEMO ? TALLER_EJEMPLO : []);
+  const n = norm(nombre);
+  return lista.find(t => (t.nombres||[]).some(x => norm(x) === n)) || {};
+}
 function renderLive(w, demo){
-  const members = w.members || [];
+  if (w){ LIVE_W = w; LIVE_DEMO = demo; } else { w = LIVE_W; demo = LIVE_DEMO; }
+  if (!w) return;
+  const members = (w.members || []).map(m => ({...m, ...(({rango,forever}) => ({rango,forever}))(fichaTaller(m.username))}));
   const chName = {}; (w.channels||[]).forEach(c => chName[c.id] = c.name.replace(/[✦✧]/g,''));
   for (const k in LIVE_VOICE) delete LIVE_VOICE[k];
   (w.channels||[]).forEach(ch => LIVE_VOICE[norm(ch.name)] = members.filter(m => m.channel_id === ch.id));
-  const sorted = [...members].sort((a,b)=>(b.channel_id?1:0)-(a.channel_id?1:0));
-  const max = 7, shown = sorted.slice(0,max);
   const wow = members.filter(m => /warcraft/i.test(m.game?.name||'')).length;
+  const nForever = members.filter(m => m.forever).length;
+  const filtro = LIVE_FILTRO === 'forever' && nForever ? 'forever' : 'todos';
+  const vis = filtro === 'forever' ? members.filter(m => m.forever) : members;
+  const orden = [...RANKS].reverse();   // Maestra primero
+  const grupos = orden.map(r => ({r, ms: vis.filter(m => m.rango === r.id)}))
+    .concat([{r:{id:'', nombre:'Sin rango aún', icono:'✨', color:'#bbb'}, ms: vis.filter(m => !m.rango)}]).filter(g => g.ms.length);
+  const fila = m => `<div class="lp-m"><div class="face" style="background:${faceCol(m.username)}">${m.avatar_url?`<img src="${esc(m.avatar_url)}" alt="">`:esc(m.username[0].toUpperCase())}<span class="st" style="background:${STATUS_COL[m.status]||STATUS_COL.online}"></span></div>
+        <div><div class="nm">${esc(m.username)}${m.forever?' <span class="lp-fv" title="Juega a WoW Forever">🍁</span>':''}</div><div class="gm">${m.game?.name?'🎮 '+esc(m.game.name):({idle:'Ausente',dnd:'No molestar'}[m.status]||'En línea')}</div></div>
+        ${m.channel_id&&chName[m.channel_id]?`<span class="vc">🔊 ${esc(chName[m.channel_id])}</span>`:''}</div>`;
   $('live').innerHTML = `
     <span class="eyebrow">en directo</span>
     <h3 style="font-size:28px"><span class="dot"></span>Ahora en el taller ${demo?'<span class="sample">ejemplo</span>':''}</h3>
-    <div class="lp-list">${shown.map(m => `<div class="lp-m"><div class="face" style="background:${faceCol(m.username)}">${m.avatar_url?`<img src="${esc(m.avatar_url)}" alt="">`:esc(m.username[0].toUpperCase())}<span class="st" style="background:${STATUS_COL[m.status]||STATUS_COL.online}"></span></div>
-        <div><div class="nm">${esc(m.username)}</div><div class="gm">${m.game?.name?'🎮 '+esc(m.game.name):({idle:'Ausente',dnd:'No molestar'}[m.status]||'En línea')}</div></div>
-        ${m.channel_id&&chName[m.channel_id]?`<span class="vc">🔊 ${esc(chName[m.channel_id])}</span>`:''}</div>`).join('')}
-      ${members.length>max?`<div class="hand" style="padding-left:8px">y ${members.length-max} más…</div>`:''}</div>
+    ${nForever ? `<div class="lp-filtro"><button data-f="forever" class="${filtro==='forever'?'on':''}">🍁 Forever · ${nForever}</button><button data-f="todos" class="${filtro==='todos'?'on':''}">Todo el Discord · ${members.length}</button></div>` : ''}
+    <div class="lp-list">${grupos.map(g => `<div class="lp-g" style="--rc:${g.r.color}">
+        <div class="lp-gh">${g.r.id ? emblem(g.r.id, g.r.color, 'lp-em') : `<span class="lp-em">${g.r.icono}</span>`}<span>${esc(g.r.nombre)}</span><b>${g.ms.length}</b></div>
+        ${g.ms.map(fila).join('')}</div>`).join('') || '<div class="hand" style="padding:8px">Ahora mismo no hay nadie por aquí… ¡sé la primera chispa!</div>'}</div>
     <div class="lp-foot"><span>${w.presence_count} conectad@s${wow?` · ${wow} en Azeroth`:''}</span><a href="${esc(DISCORD_URL)}" target="_blank" rel="noopener">Entrar →</a></div>`;
+  $('live').querySelectorAll('.lp-filtro button').forEach(b => b.onclick = () => { LIVE_FILTRO = b.dataset.f; renderLive(); });
   document.querySelectorAll('.room .live-b').forEach(el=>el.remove());
   const inVoice = Object.values(LIVE_VOICE).reduce((a,b)=>a+b.length,0);
   const vr = document.querySelector('.room[data-room="voz"]');
   if (vr && inVoice) vr.insertAdjacentHTML('beforeend', `<span class="live-b">${inVoice} 🔊</span>`);
   const act = document.querySelector('.room.active'); if (act) showRoom(act.dataset.room);
 }
+fetch('taller.json', {cache:'no-store'}).then(r => r.ok ? r.json() : Promise.reject())
+  .then(t => { if (Array.isArray(t)) { TALLER = t; renderLive(); } }).catch(()=>{});
 function loadLive(){
   if (!DISCORD_SERVER_ID){ renderLive(LIVE_EJEMPLO, true); return; }
   fetch(`https://discord.com/api/guilds/${DISCORD_SERVER_ID}/widget.json`, {cache:'no-store'})
