@@ -130,7 +130,7 @@ const EVENTOS_EJEMPLO = [
 //   emoji, titulo, actual, meta, unidad, nota (opcional)
 const OBJETIVOS = [
   { emoji:"💰", titulo:"Banco de la hermandad", actual:0, meta:100, unidad:"oros",
-    nota:"Cada moneda cuenta: deposítala en el banco de la hermandad ✿" },
+    nota:"Para comprar el banco de la hermandad. Si quieres aportar, dale el oro a cualquier Guardián del Atelier ✿" },
 ];
 
 const NOTICIAS = [
