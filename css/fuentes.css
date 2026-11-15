@@ -1,0 +1,12 @@
+/* Fuentes alojadas en la propia web (licencia SIL Open Font License) */
+@font-face{font-family:"IM Fell English";src:url("../fonts/im-fell-english-latin-400-normal.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"IM Fell English";src:url("../fonts/im-fell-english-latin-400-italic.woff2") format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"IM Fell English SC";src:url("../fonts/im-fell-english-sc-latin-400-normal.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Pinyon Script";src:url("../fonts/pinyon-script-latin-400-normal.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"EB Garamond";src:url("../fonts/eb-garamond-latin-400-normal.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"EB Garamond";src:url("../fonts/eb-garamond-latin-500-normal.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"EB Garamond";src:url("../fonts/eb-garamond-latin-600-normal.woff2") format("woff2");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"EB Garamond";src:url("../fonts/eb-garamond-latin-700-normal.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"EB Garamond";src:url("../fonts/eb-garamond-latin-500-italic.woff2") format("woff2");font-weight:500;font-style:italic;font-display:swap}
+@font-face{font-family:"Bigelow Rules";src:url("../fonts/bigelow-rules-latin-400-normal.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Parisienne";src:url("../fonts/parisienne-latin-400-normal.woff2") format("woff2");font-weight:400;font-display:swap}

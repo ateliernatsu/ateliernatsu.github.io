@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>El Atelier Natsu · Hermandad de WoW Forever</title>
+<meta name="description" content="El Atelier Natsu — hermandad hispana y casual de World of Warcraft: Forever. Abre el libro del taller.">
+<link rel="stylesheet" href="css/fuentes.css">
+<link rel="stylesheet" href="css/libro.css">
+</head>
+<body class="closed resting noche">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-discord" viewBox="0 0 24 24"><path fill="currentColor" d="M20.3 4.4A19.6 19.6 0 0 0 15.4 3l-.6 1.3a18.2 18.2 0 0 0-5.6 0L8.6 3a19.5 19.5 0 0 0-4.9 1.4C.6 9 0 13.6.3 18.1a19.8 19.8 0 0 0 6 3l1.3-2.1a12.8 12.8 0 0 1-2-1l.5-.4a14 14 0 0 0 11.8 0l.5.4c-.6.4-1.3.7-2 1l1.3 2.1a19.7 19.7 0 0 0 6-3c.5-5.2-.8-9.7-3.4-13.7ZM8.5 15.3c-1.2 0-2.1-1.1-2.1-2.4s.9-2.4 2.1-2.4 2.2 1.1 2.1 2.4c0 1.3-.9 2.4-2.1 2.4Zm7 0c-1.2 0-2.1-1.1-2.1-2.4s.9-2.4 2.1-2.4 2.2 1.1 2.1 2.4c0 1.3-.9 2.4-2.1 2.4Z"/></symbol>
+</svg>
+
+<!-- ================= ESCRITORIO ================= -->
+<div class="desk" id="desk">
+  <div class="desk-img" id="deskImg"></div>
+  <svg class="desk-svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="wallD" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9a07e"/><stop offset="1" stop-color="#a8695a"/></linearGradient>
+      <linearGradient id="wallN" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a1838"/><stop offset="1" stop-color="#1b0f25"/></linearGradient>
+      <linearGradient id="skyD" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8a76c0"/><stop offset=".45" stop-color="#f0a0a8"/><stop offset="1" stop-color="#ffd59a"/></linearGradient>
+      <linearGradient id="skyN" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#140e33"/><stop offset=".6" stop-color="#3a2058"/><stop offset="1" stop-color="#7a3a6a"/></linearGradient>
+      <linearGradient id="woodD" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b9774c"/><stop offset="1" stop-color="#7a4528"/></linearGradient>
+      <linearGradient id="woodN" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5a3428"/><stop offset="1" stop-color="#2e1914"/></linearGradient>
+      <radialGradient id="candle" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#ffd27a" stop-opacity=".9"/><stop offset=".4" stop-color="#ff9a4a" stop-opacity=".25"/><stop offset="1" stop-color="#ff9a4a" stop-opacity="0"/></radialGradient>
+      <radialGradient id="sunbeam" cx="20%" cy="10%" r="80%"><stop offset="0" stop-color="#fff1c8" stop-opacity=".55"/><stop offset="1" stop-color="#fff1c8" stop-opacity="0"/></radialGradient>
+    </defs>
+    <rect class="wall" width="1600" height="900"/>
+    <!-- window -->
+    <g transform="translate(140 40)">
+      <rect class="sky" x="0" y="0" width="520" height="430" rx="10"/>
+      <g class="night-only"><circle cx="400" cy="100" r="46" fill="#fbe7c2"/><circle cx="385" cy="90" r="46" fill="#140e33" opacity=".0"/>
+        <g fill="#fff"><circle cx="80" cy="60" r="2"/><circle cx="160" cy="130" r="1.5"/><circle cx="260" cy="50" r="2"/><circle cx="300" cy="190" r="1.4"/><circle cx="470" cy="210" r="1.8"/><circle cx="60" cy="230" r="1.4"/><circle cx="210" cy="250" r="1.2"/></g></g>
+      <g class="day-only"><circle cx="380" cy="300" r="70" fill="#fff0c0" opacity=".8"/></g>
+      <path d="M0 330 C80 300 150 320 220 300 S380 290 520 310 V430 H0Z" class="hills"/>
+      <rect x="-14" y="-14" width="548" height="458" rx="14" fill="none" stroke="#5a3424" stroke-width="22"/>
+      <rect x="252" y="0" width="16" height="430" fill="#5a3424"/><rect x="0" y="206" width="520" height="16" fill="#5a3424"/>
+      <rect x="-40" y="440" width="600" height="22" rx="6" fill="#6b3f2c"/>
+    </g>
+    <!-- hanging plant -->
+    <g transform="translate(1380 0)" fill="#4f7a4a"><path d="M40 0v120" stroke="#3b2a20" stroke-width="2"/><ellipse cx="40" cy="140" rx="46" ry="26" fill="#8a5a3c"/>
+      <path d="M10 140 q-30 80 -10 200 q10 -60 30 -190z"/><path d="M60 145 q40 90 10 230 q-20 -80 -30 -220z"/><path d="M40 150 q0 70 -40 120 q10 -60 30 -120z" fill="#6f9a6a"/></g>
+    <!-- desk -->
+    <rect class="wood" x="0" y="560" width="1600" height="340"/>
+    <g opacity=".18" stroke="#000" fill="none"><path d="M0 610 C400 600 800 625 1600 605"/><path d="M0 680 C500 670 900 700 1600 675"/><path d="M0 760 C300 750 1000 780 1600 755"/><path d="M0 840 C600 830 900 860 1600 835"/></g>
+    <rect x="0" y="556" width="1600" height="10" fill="#000" opacity=".2"/>
+    <!-- flower jar left -->
+    <g transform="translate(110 380)">
+      <rect x="20" y="90" width="90" height="120" rx="20" fill="#cfe6e6" opacity=".35" stroke="#fff" stroke-opacity=".4"/>
+      <path d="M65 100 V10 M60 100 C40 60 20 40 10 20 M70 100 C90 60 110 40 120 30" stroke="#4f7a4a" stroke-width="3" fill="none"/>
+      <g fill="#e889b0"><circle cx="65" cy="8" r="13"/><circle cx="10" cy="18" r="11"/><circle cx="122" cy="28" r="12"/><circle cx="40" cy="40" r="9"/></g>
+      <g fill="#ffd27a"><circle cx="65" cy="8" r="4"/><circle cx="10" cy="18" r="3.5"/><circle cx="122" cy="28" r="4"/></g>
+    </g>
+    <!-- candle -->
+    <g transform="translate(300 470)">
+      <circle class="candle-glow" cx="30" cy="20" r="160" fill="url(#candle)"/>
+      <rect x="14" y="40" width="32" height="90" rx="6" fill="#f3e3c8"/><path d="M30 40 v-10" stroke="#3b2a20" stroke-width="2"/>
+      <path class="flame" d="M30 0 C40 16 40 26 30 32 C20 26 20 16 30 0Z" fill="#ffcf6a"/>
+      <ellipse cx="30" cy="132" rx="40" ry="10" fill="#8a6a4a"/>
+    </g>
+    <!-- books stack right -->
+    <g transform="translate(1260 430)">
+      <rect x="0" y="100" width="240" height="40" rx="6" fill="#6c8fd8"/><rect x="14" y="62" width="220" height="40" rx="6" fill="#d0578a"/><rect x="-6" y="24" width="210" height="40" rx="6" fill="#6f9a6a"/>
+      <rect x="20" y="8" width="160" height="18" rx="5" fill="#c9974a"/>
+      <g stroke="#fff" stroke-opacity=".5" stroke-width="3"><path d="M30 110v20M200 72v20M20 34v20"/></g>
+    </g>
+    <!-- ink + quill -->
+    <g transform="translate(1180 560)"><rect x="0" y="0" width="56" height="56" rx="12" fill="#2a2240"/><rect x="12" y="-12" width="32" height="14" rx="4" fill="#3a3256"/>
+      <path d="M28 -10 C40 -90 80 -150 120 -190 C90 -130 70 -80 32 -8Z" fill="#f2a7c4"/></g>
+    <!-- teacup -->
+    <g transform="translate(470 610)"><ellipse cx="50" cy="60" rx="70" ry="14" fill="#e9dcc0"/><path d="M10 10 h80 v30 a40 30 0 0 1 -80 0z" fill="#fff6ea"/><path d="M90 18 a16 14 0 1 1 0 22" stroke="#fff6ea" stroke-width="7" fill="none"/>
+      <ellipse cx="50" cy="12" rx="40" ry="7" fill="#b86a3a"/><path class="steam" d="M40 -10 c-10 -20 10 -30 0 -50 M60 -10 c-10 -20 10 -30 0 -50" stroke="#fff" stroke-opacity=".35" stroke-width="3" fill="none"/></g>
+    <g class="rays sun" opacity=".9">
+      <defs><linearGradient id="rayg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff2cf" stop-opacity=".55"/><stop offset="1" stop-color="#fff2cf" stop-opacity="0"/></linearGradient></defs>
+      <polygon points="300,60 420,60 1180,900 760,900" fill="url(#rayg)"/>
+      <polygon points="470,80 560,80 1500,900 1180,900" fill="url(#rayg)" opacity=".7"/>
+      <polygon points="180,120 250,120 640,900 420,900" fill="url(#rayg)" opacity=".5"/>
+    </g>
+    <g class="rays moon" opacity=".5">
+      <defs><linearGradient id="raym" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c9c3ff" stop-opacity=".35"/><stop offset="1" stop-color="#c9c3ff" stop-opacity="0"/></linearGradient></defs>
+      <polygon points="430,60 560,60 1300,900 900,900" fill="url(#raym)"/>
+    </g>
+    <rect class="beam day-only" width="1600" height="900" fill="url(#sunbeam)"/>
+  </svg>
+  <canvas class="motes" id="motes"></canvas>
+</div>
+
+<div class="daynight" id="daynight">
+  <button type="button" data-m="dia" title="Atardecer">☀️</button>
+  <button type="button" data-m="noche" title="Noche">🌙</button>
+</div>
+
+<!-- ================= ENTRADA: el grimorio sobre la mesa ================= -->
+<div class="intro" id="intro" hidden>
+  <div class="intro-img closed" id="introClosed"></div>
+  <div class="intro-img opened" id="introOpened"></div>
+  <button class="intro-hot" id="introHot" aria-label="Abrir el libro del Atelier"><span class="sparkle s1">✦</span><span class="sparkle s2">✧</span><span class="sparkle s3">✦</span></button>
+  <div class="intro-title"><span class="jp">夏 の 工 房</span><b>El Atelier Natsu</b><span class="tap">✦ toca el grimorio para entrar ✦</span></div>
+</div>
+
+<!-- ================= EL LIBRO ================= -->
+<div class="stage">
+  <div class="book" id="book">
+
+    <div class="book-glow" aria-hidden="true"></div>
+    <!-- portada del libro (cerrado) -->
+    <div class="cover" id="cover" role="button" tabindex="0" aria-label="Abrir el libro del Atelier">
+      <div class="cv-face">
+        <svg class="orn" viewBox="0 0 400 600" preserveAspectRatio="none" fill="none" stroke="#e8c27c" stroke-width="2" opacity=".75">
+          <rect x="8" y="8" width="384" height="584" rx="10"/><rect x="18" y="18" width="364" height="564" rx="6" stroke-dasharray="2 6"/>
+          <path d="M8 70 C40 70 70 40 70 8 M392 70 C360 70 330 40 330 8 M8 530 C40 530 70 560 70 592 M392 530 C360 530 330 560 330 592"/>
+          <circle cx="40" cy="40" r="6" fill="#e8c27c"/><circle cx="360" cy="40" r="6" fill="#e8c27c"/><circle cx="40" cy="560" r="6" fill="#e8c27c"/><circle cx="360" cy="560" r="6" fill="#e8c27c"/>
+        </svg>
+        <div class="rune">
+          <div class="glow"></div>
+          <svg viewBox="0 0 200 200" fill="none" stroke="#f0cf8e" stroke-width="2">
+            <g class="spin"><circle cx="100" cy="100" r="92" stroke-dasharray="4 7"/><circle cx="100" cy="100" r="80"/>
+              <g font-family="serif" font-size="13" fill="#f0cf8e" stroke="none" text-anchor="middle">
+                <text x="100" y="16">夏</text><text x="184" y="104">工</text><text x="100" y="192">房</text><text x="16" y="104">の</text></g></g>
+            <path d="M100 30 L118 82 L170 100 L118 118 L100 170 L82 118 L30 100 L82 82Z" fill="rgba(240,207,142,.12)"/>
+            <path d="M100 55 L110 90 L145 100 L110 110 L100 145 L90 110 L55 100 L90 90Z" fill="rgba(242,167,196,.25)"/>
+            <g transform="translate(86 78)"><path d="M14 0v6" /><rect x="3" y="6" width="22" height="3" rx="1.5" fill="#f0cf8e"/><ellipse cx="14" cy="22" rx="12" ry="12" fill="#f2a7c4" stroke="#f0cf8e"/><rect x="3" y="34" width="22" height="3" rx="1.5" fill="#f0cf8e"/></g>
+          </svg>
+        </div>
+        <h1>El Atelier<br>Natsu</h1>
+        <div class="jp">夏 の 工 房</div>
+        <div class="sub">el libro del taller</div>
+        <span class="open-cta">✦ Conoce el Atelier ✦</span>
+      </div>
+      <div class="cv-back"></div>
+    </div>
+
+    <div class="pages" id="pages">
+
+      <section class="spread" id="inicio" data-ch="inicio" data-title="Portada">
+        <div class="pg L"><div class="pg-in">
+          <div class="live" id="live"></div>
+          <img class="chibi-sm js-chibi" alt="">
+        </div></div>
+        <div class="pg R"><div class="pg-in">
+          <span class="kicker">🍁 Hermandad de WoW Forever</span>
+          <h1 class="title-big marca">El Atelier Natsu</h1>
+          <div class="hand">夏の工房 · el taller de verano</div>
+          <p style="margin-top:14px">Una hermandad pequeña, hispana y sin prisas. Subimos del 1 al 60 en grupo, hacemos mazmorras sin gritar y charlamos junto a la hoguera hasta que alguien se queda dormido en la siesta.</p>
+          <div class="ctas">
+            <a class="btn btn-pink js-discord" href="#" target="_blank" rel="noopener"><svg><use href="#i-discord"/></svg>Únete al Discord</a>
+            <a class="btn btn-line" href="#calendario">🗓️ Eventos</a>
+          </div>
+          <a class="nextev" id="nextEv" href="#calendario" hidden></a>
+          <p class="stamp-note" style="margin-top:22px">Pasa las páginas o usa los post-its de colores ✦</p>
+        </div></div>
+      </section>
+
+      <section class="spread" id="indice" data-ch="inicio" data-title="Índice">
+        <div class="pg L"><div class="pg-in"><span class="eyebrow">el libro del taller</span><h2>Índice</h2><div class="toc" id="tocL"></div></div></div>
+        <div class="pg R"><div class="pg-in"><div class="toc" id="tocR"></div><p class="hand" style="margin-top:18px">Pulsa cualquier capítulo para ir directo ✦</p></div></div>
+      </section>
+
+      <section class="spread" id="calendario" data-ch="calendario" data-title="Calendario">
+        <div class="pg L"><div class="pg-in">
+          <span class="eyebrow">Calendario</span>
+          <h2>Próximas <span class="pk">quedadas</span> <span class="sample" id="sampleBadge" hidden>ejemplo</span></h2>
+          <div class="cal-top">
+            <h3 id="calTitle"></h3>
+            <button class="today" id="calToday">Hoy</button>
+            <button id="calPrev" aria-label="Mes anterior">‹</button>
+            <button id="calNext" aria-label="Mes siguiente">›</button>
+          </div>
+          <div class="dow"><div>Lun</div><div>Mar</div><div>Mié</div><div>Jue</div><div>Vie</div><div>Sáb</div><div>Dom</div></div>
+          <div class="days" id="calDays"></div>
+          <div class="gl" id="gameLegend"></div>
+        </div></div>
+        <div class="pg R"><div class="pg-in">
+          <h3 id="evTitle" style="text-transform:capitalize">Lo próximo</h3>
+          <div id="evList"></div>
+          <p class="hand" style="margin-top:12px"><img class="emo" src="img/emotes/gamer.webp" alt=""> Los eventos se crean en el Discord y aparecen aquí solos ✦</p>
+        </div></div>
+      </section>
+
+      <section class="spread" id="hermandad-filosofia" data-ch="hermandad" data-title="Nuestra filosofía">
+        <div class="pg L"><div class="pg-in">
+          <span class="eyebrow">La Hermandad · capítulo I</span>
+          <h2>Un taller, <span class="pk">no un cuartel</span></h2>
+          <p>El Atelier Natsu nace como un grupo de amigos que vuelve a Azeroth con WoW Forever. No buscamos el primer puesto de nada: buscamos buena compañía para llegar al 60 y a las bandas a nuestro ritmo.</p>
+          <blockquote>«Cada quien trae su oficio. Unos tanquean, otros curan, otros traen la merienda.»<span>— lema no oficial del taller</span></blockquote>
+          <ul class="values">
+            <li><span class="ic">🏮</span><div><b>Casual, pero con ganas</b><small>Mazmorras y bandas con amigos, sin exigir horarios ni logs.</small></div></li>
+            <li><span class="ic">🎐</span><div><b>Ambiente tranquilo</b><small>Se ayuda a quien empieza o vuelve tras años.</small></div></li>
+            <li><span class="ic">🍉</span><div><b>En español</b><small>En Discord y en el juego.</small></div></li>
+          </ul>
+        </div></div>
+        <div class="pg R"><div class="pg-in">
+          <span class="eyebrow">Qué hacemos</span>
+          <h2>En Azeroth</h2>
+          <div class="acts4">
+            <div class="act"><span class="tape"></span><span class="i">🧭</span><b>Leveo en grupo</b><small>Del 1 al 60 en compañía: un tanque agrupa y los demás hacen daño en área.</small></div>
+            <div class="act"><span class="tape b"></span><span class="i">🏰</span><b>Mazmorras</b><small>Las clásicas y las nuevas de Forever, en las Expediciones I, II y III.</small></div>
+            <div class="act"><span class="tape y"></span><span class="i">🐉</span><b>Bandas</b><small>Al llegar al 60: bandas casuales donde se aprende sobre la marcha.</small></div>
+            <div class="act"><span class="tape g"></span><span class="i">🧺</span><b>Oficios</b><small>Encargos en el mercadillo y menciones al oficio que necesitas.</small></div>
+          </div>
+        </div></div>
+      </section>
+
+      <section class="spread" id="hermandad-rangos" data-ch="hermandad" data-title="Rangos">
+        <div class="pg L"><div class="pg-in">
+          <span class="eyebrow">La Hermandad · capítulo II</span>
+          <h2>Rangos del <span class="pk">gremio</span></h2>
+          <p class="muted">Los dan los Guardianes. Empiezas como Visitante de Verano… ¡y el taller crece contigo! 🌻 Pulsa uno.</p>
+          <div class="rank-list" id="rankList"></div>
+        </div></div>
+        <div class="pg R"><div class="pg-in"><div class="rd" id="rankDetail"></div></div></div>
+      </section>
+
+      <section class="spread" id="hermandad-roles" data-ch="hermandad" data-title="Roles que eliges">
+        <div class="pg L"><div class="pg-in">
+          <span class="eyebrow">La Hermandad · capítulo III</span>
+          <h2>Los roles que <span class="pk">eliges tú</span></h2>
+          <p class="muted">En Canales y roles. Todos se pueden mencionar: escribe <b>@Sastrería</b> y solo les llega a quienes tienen ese oficio. Pulsa para montar tu perfil.</p>
+          <div id="srGridA"></div>
+        </div></div>
+        <div class="pg R"><div class="pg-in">
+          <div id="srGridB"></div>
+          <div class="myprofile" id="myProfile">Tu perfil: <b>elige tus roles</b></div>
+        </div></div>
+      </section>
+
+      <section class="spread" id="hermandad-taller" data-ch="hermandad" data-title="El mapa del taller">
+        <div class="pg L"><div class="pg-in">
+          <span class="eyebrow">La Hermandad · capítulo IV</span>
+          <h2>El mapa <span class="pk">del taller</span></h2>
+          <div class="plan">
+            <div class="plan-title"><span>planta del atelier · esc. 1:50</span><span class="marca marca-sm">El Atelier Natsu</span></div>
+            <div class="plan-grid" id="planGrid"></div>
+            <div class="legend"><span><i></i>Abierto a todo el taller</span><span><i class="d"></i>Ala de Midnight</span></div>
+          </div>
+        </div></div>
+        <div class="pg R"><div class="pg-in" id="planInfo"></div></div>
+      </section>
+
+      <section class="spread" id="hermandad-miembros" data-ch="hermandad" data-title="Miembros">
+        <div class="pg L"><div class="pg-in">
+          <span class="eyebrow">La Hermandad · capítulo V</span>
+          <h2>Quién trabaja <span class="pk">en el taller</span></h2>
+          <p class="muted">Cada miembro tiene su hoja en el libro. Pasa las páginas para conocerlos, o pulsa uno de la lista.</p>
+          <div class="filters" id="filters"></div>
+          <p class="hand">¿Quieres salir aquí? <a href="#nuevo-carnet" style="color:var(--pink)">Hazte tu carnet</a> y pásaselo a la Maestra ✿</p>
+        </div></div>
+        <div class="pg R"><div class="pg-in"><h3><img class="emo" src="img/emotes/hola.webp" alt=""> Índice de aventureros</h3><div class="mlist" id="mIndex"></div></div></div>
+      </section>
+      <!-- aquí se insertan las hojas de los miembros -->
+
+      <section class="spread" id="nuevo" data-ch="nuevo" data-title="Bienvenid@">
+        <div class="pg L"><div class="pg-in">
+          <span class="eyebrow">Recién llegad@</span>
+          <h2>Pasa, que la puerta <span class="pk">está abierta</span></h2>
+          <p class="muted">No hace falta nivel, equipo ni experiencia. Solo ganas de jugar con gente maja.</p>
+          <a class="btn btn-orange js-discord" href="#" target="_blank" rel="noopener"><svg><use href="#i-discord"/></svg>Únete al Discord</a>
+          <div class="copyrow"><span>o copia el enlace:</span><code id="inviteText"></code><button class="copybtn" id="copyBtn">Copiar</button></div>
+          <img class="emo-big" src="img/emotes/hola.webp" alt="" style="width:150px">
+        </div></div>
+        <div class="pg R"><div class="pg-in">
+          <h3>Así se entra</h3>
+          <ol class="steps">
+            <li><div><b>Entra al Discord</b><small>Con el botón. Sin escribir enlaces a mano.</small></div></li>
+            <li><div><b>Rellena el formulario</b><small>Marca 🍁 Forever, tu papel, tu horario y tus oficios.</small></div></li>
+            <li><div><b>Acepta el juramento</b><small>Y ya puedes escribir, reaccionar y entrar en voz.</small></div></li>
+            <li><div><b>Preséntate y pide invitación</b><small>En ✦preséntate✧ y ✦carta-de-solicitud✧. Empiezas como 🌱 Visitante de Verano.</small></div></li>
+          </ol>
+        </div></div>
+      </section>
+
+      <section class="spread" id="nuevo-pasos" data-ch="nuevo" data-title="Primeros pasos">
+        <div class="pg L"><div class="pg-in">
+          <span class="eyebrow">Recién llegad@ · paso 1</span>
+          <h2>Primeros <span class="pk">pasos</span></h2>
+          <p class="muted">Cuatro pasos y ya estás junto a la hoguera. Ve marcándolos cuando los hagas.</p>
+          <div class="ob-progress"><div class="track"><div class="fill" id="obFill"></div></div><span id="obText">0 de 4</span></div>
+          <div class="card ob" data-ob="1">
+            <button class="check" type="button"><span>Hecho</span><i>✓</i></button>
+            <div class="n" style="background:#f2a7c4">1</div><h3>📝 El formulario</h3>
+            <p>Al entrar respondes 4 preguntas. Cada respuesta te da un rol y te abre tus canales.</p>
+            <div class="q"><b>¿En qué aventura te encuentras?</b><span class="chip">🌙 Midnight</span><span class="chip hl">🍁 Forever</span> <small>obligatoria · puedes elegir las dos</small></div>
+            <div class="q"><b>¿Qué tipo de aventurero eres?</b><span class="chip">🛡️ Tanque</span><span class="chip">💚 Sanador</span><span class="chip">⚔️ Daño</span><span class="chip">🧭 Mentor</span></div>
+            <div class="q"><b>¿Cuándo sueles jugar?</b><span class="chip">🌅 Mañanas</span><span class="chip">☀️ Tardes</span><span class="chip">🌃 Noches</span><span class="chip">🦉 Madrugada</span><span class="chip">🎉 Finde</span></div>
+            <div class="q" style="margin:0"><b>¿Qué oficios dominas?</b><small>Los 12 oficios de WoW Forever · se puede omitir</small></div>
+          </div>
+        </div></div>
+        <div class="pg R"><div class="pg-in">
+          <div class="card ob" data-ob="2" style="padding-right:130px;min-height:170px">
+            <img id="chibi" src="img/emotes/ilusion.webp" alt="" style="position:absolute;right:6px;bottom:-6px;width:112px;pointer-events:none;filter:drop-shadow(0 6px 10px rgba(60,20,50,.3))">
+            <button class="check" type="button" style="right:130px"><span>Hecho</span><i>✓</i></button>
+            <div class="n" style="background:#f4c27a">2</div><h3>🗺️ La guía</h3>
+            <p>Te recibe el cartel de bienvenida de la Maestra y tres tareas: <span class="chip">🎭 Preséntate</span><span class="chip">🔥 Saluda en la hoguera</span><span class="chip">📜 Lee las reglas</span></p>
+          </div>
+          <div class="card ob" data-ob="3">
+            <button class="check" type="button"><span>Hecho</span><i>✓</i></button>
+            <div class="n" style="background:#ecc77f">3</div><h3>📜 El juramento</h3><img class="juramento-emo" src="img/emotes/enfado.webp" alt="">
+            <p>Antes de escribir tienes que aceptar el juramento del taller, en ✦el-juramento✧.</p>
+            <div class="q"><b>Hasta aceptarlo…</b>👀 puedes mirar todo<br>🚫 no puedes escribir, reaccionar ni hablar en voz</div>
+          </div>
+          <div class="card ob" data-ob="4">
+            <button class="check" type="button"><span>Hecho</span><i>✓</i></button>
+            <div class="n" style="background:#c3a6ee">4</div><h3>🎭 Canales y roles</h3>
+            <p>Arriba del todo en la lista de canales. Vuelve cuando quieras para cambiar tus respuestas.</p>
+            <div class="q" style="line-height:1.9;margin:0">🍁 ¿Empiezas en Forever? · ⚒️ ¿Has aprendido un oficio? · 🧭 ¿Quieres ser Mentor?</div>
+          </div>
+                </div></div>
+      </section>
+
+      <section class="spread" id="nuevo-hoguerita" data-ch="nuevo" data-title="La hoguerita">
+        <div class="pg L"><div class="pg-in">
+          <span class="eyebrow">Recién llegad@ · paso 2</span>
+          <h2>🔥 ✦hoguerita-<span class="pk">en-pruebas</span>✧</h2>
+          <p class="muted">Si enlazas tu Battle.net con Discord, lo que se escribe en el chat de hermandad del juego aparece en este canal, y al revés. ¡Habla con la hermandad desde el móvil!</p>
+          <div class="htabs" id="hgTabs"><button class="on" data-t="todos">Para todo el mundo</button><button data-t="guard">Para Guardianes</button></div>
+          <ol class="hsteps" id="hgTodos">
+            <li><b>Enlaza tus cuentas</b><span>En Discord: <span class="path">Ajustes de usuario → Aplicaciones conectadas → Battle.net</span> y confirma en Battle.net y en Discord. O desde el juego: <span class="path">Opciones → Social → funciones de Discord</span>.</span></li>
+            <li><b>Elige cómo te ven</b><span><span class="path">Opciones → Social → Nombre para mostrar</span>: tu último personaje en la hermandad o tu nombre global de Discord.</span></li>
+            <li><b>Escribe en ✦hoguerita-en-pruebas✧</b><span>Tu mensaje sale en el chat de hermandad con un iconito de Discord, y lo del juego aparece aquí.</span></li>
+          </ol>
+          <ol class="hsteps" id="hgGuard" hidden>
+            <li><b>Permisos en Discord</b><span>Dar al canal <b>Ver canal</b>, <b>Gestionar canal</b> y <b>Enviar mensajes</b>.</span></li>
+            <li><b>Vincular desde el juego</b><span>La Maestra o un oficial: <span class="path">Control de hermandad → Discord</span> → servidor y canal → <b>Vincular</b>.</span></li>
+            <li><b>Ajustar a gusto</b><span><i>Separar el chat de Discord del chat de hermandad</i> le da su propia pestaña. Se puede desvincular cuando se quiera.</span></li>
+          </ol>
+        </div></div>
+        <div class="pg R"><div class="pg-in">
+          <div class="mock" aria-hidden="true">
+            <div class="mock-win mock-wow"><div class="mock-bar">⚔ WoW Forever · Hermandad</div><div class="mock-body" id="mockWow"></div></div>
+            <div class="mock-arrow">⇅ todo viaja al otro lado</div>
+            <div class="mock-win mock-dc"><div class="mock-bar"># 🔥✦hoguerita-en-pruebas✧</div><div class="mock-body" id="mockDc"></div></div>
+          </div>
+          <div class="tips postit amarillo">
+            <span>⚠️ Si no enlazas tu cuenta, lo que escribas en /hermandad <b>no llegará</b> a Discord: el canal mostrará un aviso.</span>
+            <span>🔕 Silencia el canal si no quieres una notificación por cada mensaje.</span>
+            <span>🔐 Al enlazar se comparten tu ID de Discord y tu BattleTag.</span>
+            <span>🧪 Está <b>en pruebas</b>: si algo falla, avisa a un Guardián.</span>
+          </div>
+          <img class="emo-big" src="img/emotes/cafe.webp" alt="">
+        </div></div>
+      </section>
+
+      <section class="spread" id="nuevo-carnet" data-ch="nuevo" data-title="Tu carnet">
+        <div class="pg L"><div class="pg-in">
+          <span class="eyebrow">Recién llegad@ · paso 3</span>
+          <h2>Tu carnet <span class="pk">del taller</span></h2>
+          <form class="cform" id="cform" onsubmit="return false">
+            <label>Nombre del personaje<input id="cName" maxlength="24" value="Tu personaje"></label>
+            <div class="row"><label>Raza<input id="cRace" maxlength="20" value="Surcacielos"></label><label>Clase<select id="cClass"></select></label></div>
+            <div class="row"><label>Rol<select id="cRole"><option>DPS</option><option>Tank</option><option>Healer</option></select></label><label>Rango<select id="cRank"></select></label></div>
+            <label>Lema u oficios<input id="cMotto" maxlength="40" placeholder="Sastrería · Encantamiento"></label>
+            <label>Colores<div class="swatches" id="cThemes"></div></label>
+            <label>Pegatina<div class="stickers" id="cStickers"></div></label>
+            <label>Foto (captura de tu personaje)<span class="file-btn">📷 <span id="cFileTxt">Subir imagen</span><input type="file" id="cFile" accept="image/*"></span></label>
+          </form>
+        </div></div>
+        <div class="pg R"><div class="pg-in">
+          <p class="muted">Así apareces en el libro. Descárgalo para tu perfil y pulsa <b>Copiar mi ficha</b> para pasársela a la Maestra.</p>
+          <div class="card-stage"><div class="carnet" id="carnetCard"></div></div>
+          <div class="acts" style="justify-content:center;margin-top:18px">
+            <button class="btn btn-pink btn-sm" id="cDownload" type="button">⬇ Descargar</button>
+            <button class="btn btn-line btn-sm" id="cCopy" type="button">⧉ Copiar mi ficha</button>
+            <button class="btn btn-line btn-sm" id="cRandom" type="button">🎲 Sorpréndeme</button>
+          </div>
+          <p class="card-note">La foto se queda en tu navegador: no se sube a ningún sitio ✦</p>
+        </div></div>
+      </section>
+
+      <section class="spread" id="guias" data-ch="guias" data-title="Sobre las guías">
+        <div class="pg L"><div class="pg-in">
+          <span class="eyebrow">Guías del taller</span>
+          <h2>Pequeñas guías <span class="pk">de ayuda</span></h2>
+          <p>Aquí guardamos explicaciones cortas para el día a día del Atelier: cómo pedir un encargo a los artesanos, qué add-ons nos hacen la vida más fácil y otros trucos que vamos aprendiendo juntos.</p>
+          <p class="muted">Este capítulo está vivo: iremos añadiendo guías nuevas a medida que el taller las necesite. Si echas en falta alguna, pídela en ✦dudas-de-clase✧.</p>
+          <div class="toc" style="margin-top:18px">
+            <a href="#guias-mercadillo"><span>🧺 El mercadillo</span><span class="dots"></span><span class="pn">encargos de oficios</span></a>
+            <a href="#guias-addons"><span>⚙️ Add-ons</span><span class="dots"></span><span class="pn">los que usamos</span></a>
+            <a href="#nuevo-hoguerita"><span>🔥 La hoguerita</span><span class="dots"></span><span class="pn">chat de hermandad</span></a>
+          </div>
+        </div></div>
+        <div class="pg R"><div class="pg-in">
+          <h3>Próximamente en el libro</h3>
+          <div class="postit lila" style="margin-top:14px">
+            <ul class="soon">
+              <li>⚒️ Profesiones de Forever: qué recoger y dónde</li>
+              <li>🧭 Ruta de leveo del 1 al 60 en grupo</li>
+              <li>🏰 Mazmorras nuevas de Forever, sin spoilers</li>
+              <li>🐉 Primeros pasos en bandas</li>
+            </ul>
+          </div>
+          <p class="hand" style="margin-top:16px">¿Quieres escribir una guía? Habla con un Guardián ✦</p>
+        </div></div>
+      </section>
+
+      <section class="spread" id="guias-mercadillo" data-ch="guias" data-title="El mercadillo">
+        <div class="pg L"><div class="pg-in">
+          <span class="eyebrow">Guías · El Ala Eterna</span>
+          <h2>🧺 El <span class="pk">mercadillo</span></h2>
+          <p class="muted">En ✦el-mercadillo✧ se piden y se ofrecen encargos de oficios. Pulsa cada paso.</p>
+          <div class="mk-steps">
+            <button class="mks on" data-s="0"><div class="n" style="background:#ecc77f">1</div><h4>✍️ Publica</h4><p>Título <b>Pido</b> u <b>Ofrezco</b> + el objeto.</p></button>
+            <button class="mks" data-s="1"><div class="n" style="background:#f2a7c4">2</div><h4>🏷️ Etiqueta</h4><p>Rellena la plantilla, marca oficio y estado:</p><span class="tagst">🟢 Abierto</span></button>
+            <button class="mks" data-s="2"><div class="n" style="background:#f4c27a">3</div><h4>🤝 Alguien lo coge</h4><p>El artesano cambia la etiqueta a:</p><span class="tagst">🟡 En proceso</span></button>
+            <button class="mks" data-s="3"><div class="n" style="background:#a9cfd0">4</div><h4>🎁 ¡Entregado!</h4><p>Márcalo terminado y da las gracias:</p><span class="tagst">✅ Entregado</span></button>
+          </div>
+          <p class="hand" style="margin-top:14px"><img class="emo" src="img/emotes/tesoro.webp" alt=""> Entre todos llegamos más lejos (y más baratos) 💰</p>
+        </div></div>
+        <div class="pg R"><div class="pg-in">
+          <div class="post-ex">
+            <div class="tags"><span id="mkState">📝 Borrador</span><span>🧵 Sastrería</span></div>
+            <h5>(EJEMPLO) Pido · Túnica de seda para mi maga</h5>
+            <div class="l">📦 Túnica de seda (nivel 20)<br>🧾 Aporto 8 telas de seda y 2 hilos finos<br>💰 50 de plata<br>⏰ Tardes entre semana</div>
+          </div>
+          <div class="tpl"><span class="tape y"></span>
+            <div class="tpl-h">📋 La plantilla <button type="button" id="tplCopy">Cópiala</button></div>
+<pre id="tplText">📦 Objeto o encargo:
+🛠️ Oficio:
+🧾 Materiales: ¿los aportas tú?
+💰 Pago o propina:
+⏰ Cuándo te viene bien:
+👤 Personaje en el juego:</pre>
+          </div>
+        </div></div>
+      </section>
+
+      <section class="spread" id="guias-addons" data-ch="guias" data-title="Add-ons">
+        <div class="pg L"><div class="pg-in">
+          <span class="eyebrow">Guías · herramientas</span>
+          <h2>Los add-ons <span class="pk">del taller</span></h2>
+          <p class="muted">Los que nos parecen útiles para WoW Forever, con su enlace. ¿Conoces uno bueno? Proponlo en ✦addons✧.</p>
+          <div id="addons"></div>
+        </div></div>
+        <div class="pg R"><div class="pg-in install">
+          <h3>🛠️ Cómo instalar un add-on</h3>
+          <ol>
+            <li>Descárgalo desde su enlace (normalmente un .zip).</li>
+            <li>Descomprímelo dentro de la carpeta <span class="path">Interface\AddOns</span> de tu instalación de WoW Forever.</li>
+            <li>En la pantalla de personajes pulsa <b>Add-ons</b> y comprueba que está activado.</li>
+            <li>Si no aparece, mira que la carpeta no esté dentro de otra carpeta con el mismo nombre.</li>
+          </ol>
+        </div></div>
+      </section>
+
+      <section class="spread wide" id="mapa" data-ch="mapa" data-title="Mapa de Azeroth">
+        <div class="pg L"><div class="pg-in map-in">
+          <div class="map-side">
+            <div class="map-note-paper"><span class="tape"></span>
+              <span class="eyebrow">Guía de Azeroth</span>
+              <h2>Mapa del <span class="pk">aventurero</span></h2>
+              <b>Tu nivel</b>
+              <div class="lvl-row"><input type="range" id="lvlRange" min="1" max="60" value="10"><input class="lvl-num" id="lvlNum" type="number" min="1" max="60" value="10"></div>
+              <div class="seg" id="contSeg"><button data-c="este" class="on">Reinos del Este</button><button data-c="kalimdor">Kalimdor</button></div>
+              <label class="tog"><input type="checkbox" id="fZonas" checked> Zonas</label>
+              <label class="tog"><input type="checkbox" id="fMaz" checked> <span class="sw2" style="background:#4b6cf2"></span> Mazmorras</label>
+              <label class="tog"><input type="checkbox" id="fBan" checked> <span class="sw2" style="background:#c94b7e"></span> Bandas</label>
+              <label class="tog"><input type="checkbox" id="fNew"> ✦ Solo novedades</label>
+              <div class="mini-btns"><button id="fAll" type="button">Todo</button><button id="fNone" type="button">Nada</button></div>
+              <div class="legend2">
+                <span><i style="background:#e0435c"></i>Imposible</span><span><i style="background:#f08a3c"></i>Difícil</span>
+                <span><i style="background:#f2c94c"></i>Tu nivel</span><span><i style="background:#5cc98a"></i>Fácil</span>
+                <span><i style="background:#8a8494"></i>Sin exp.</span><span><i style="border:2px dashed #d0578a"></i>Forever</span>
+              </div>
+            </div>
+          </div>
+          <div class="map-box" id="mapBox">
+            <div class="map-title" id="mapTitle">Reinos del Este</div>
+            <div class="map-note">Ilustrado y aproximado · niveles de Classic</div>
+            <div class="zoom"><button id="zIn" aria-label="Acercar">+</button><button id="zOut" aria-label="Alejar">−</button><button id="zReset" aria-label="Centrar">⟲</button></div>
+            <svg id="mapSvg" viewBox="0 0 600 1100" preserveAspectRatio="xMidYMid meet"></svg>
+            <div class="map-tip" id="mapTip" hidden></div>
+          </div>
+          <div class="map-side">
+            <div class="map-note-paper"><span class="tape b"></span>
+              <div class="zinfo" id="zInfo"></div>
+              <b style="display:block;margin-top:12px">Para tu nivel</b>
+              <div class="rec" id="recList"></div>
+            </div>
+          </div>
+        </div></div>
+        <div class="pg R"><div class="pg-in"></div></div>
+      </section>
+
+      <section class="spread" id="noticias" data-ch="noticias" data-title="Noticias">
+        <div class="pg L"><div class="pg-in" id="newsL"></div></div>
+        <div class="pg R"><div class="pg-in" id="newsR"></div></div>
+      </section>
+
+    </div><!-- /pages -->
+
+    <!-- post-its -->
+    <nav class="tabs" id="tabs">
+      <div class="tab home" data-ch="inicio" style="--pc:#f6efe2;--pc2:#e9dcc4;--ink2:#7a5a3a;--rot:1deg"><a href="#inicio"><span class="ti">🏠</span>Portada</a></div>
+      <div class="tab" data-ch="calendario" style="--pc:#f6d6c4;--pc2:#e9b49a;--ink2:#a0553a;--rot:-1.5deg"><a href="#calendario"><span class="ti">🗓️</span>Calendario</a></div>
+      <div class="tab" data-ch="hermandad" style="--pc:#f3d3dc;--pc2:#e3a8b9;--ink2:#a04a68;--rot:1.5deg">
+        <a href="#hermandad-filosofia"><span class="ti">🏮</span>La Hermandad</a>
+        <div class="sub"><span class="tape"></span>
+          <a href="#hermandad-filosofia"><span>🌸</span>Nuestra filosofía</a>
+          <a href="#hermandad-rangos"><span>👑</span>Rangos del gremio</a>
+          <a href="#hermandad-roles"><span>🧭</span>Roles que eliges</a>
+          <a href="#hermandad-taller"><span>🗺️</span>El mapa del taller</a>
+          <a href="#hermandad-miembros"><span>🎭</span>Miembros</a>
+        </div>
+      </div>
+      <div class="tab" data-ch="nuevo" style="--pc:#dbe5cf;--pc2:#b4c79f;--ink2:#56703f;--rot:-1deg">
+        <a href="#nuevo"><span class="ti">🌱</span>Recién llegad@</a>
+        <div class="sub"><span class="tape g"></span>
+          <a href="#nuevo"><span>🚪</span>Cómo entrar</a>
+          <a href="#nuevo-pasos"><span>📝</span>Primeros pasos</a>
+          <a href="#nuevo-hoguerita"><span>🔥</span>Enlaza la hoguerita</a>
+          <a href="#nuevo-carnet"><span>🪪</span>Hazte tu carnet</a>
+        </div>
+      </div>
+      <div class="tab" data-ch="guias" style="--pc:#f3e6c2;--pc2:#e2c98a;--ink2:#8a6a22;--rot:1.5deg">
+        <a href="#guias"><span class="ti">📚</span>Guías</a>
+        <div class="sub"><span class="tape y"></span>
+          <a href="#guias"><span>📚</span>Sobre las guías</a>
+          <a href="#guias-mercadillo"><span>🧺</span>El mercadillo</a>
+          <a href="#guias-addons"><span>⚙️</span>Add-ons</a>
+        </div>
+      </div>
+      <div class="tab" data-ch="mapa" style="--pc:#d6e1ef;--pc2:#a9bedb;--ink2:#46628f;--rot:-1deg"><a href="#mapa"><span class="ti">🗺️</span>Mapa</a></div>
+      <div class="tab" data-ch="noticias" style="--pc:#e2d8ef;--pc2:#bfaedb;--ink2:#6a5490;--rot:2deg"><a href="#noticias"><span class="ti">📰</span>Noticias</a></div>
+      <div class="tab join" style="--pc:#d98a6a;--pc2:#b9603f;--ink2:#fff;--rot:-1.5deg"><a class="js-discord" href="#" target="_blank" rel="noopener"><svg><use href="#i-discord"/></svg>Únete</a></div>
+    </nav>
+
+    <button class="ribbon" id="ribbon" title="Volver a la portada" aria-label="Portada">🏮</button>
+    <button class="close-book" id="closeBook" title="Cerrar el libro" aria-label="Cerrar el libro">✕</button>
+    <button class="corner prev" id="prev" aria-label="Página anterior"><span>‹</span></button>
+    <button class="corner next" id="next" aria-label="Página siguiente"><span>›</span></button>
+  </div>
+</div>
+
+<div class="tap-hint">✦ toca la portada para abrir el libro ✦</div>
+<div class="quick">
+  <a class="js-discord" href="#" target="_blank" rel="noopener"><svg><use href="#i-discord"/></svg>¿Prisa? Únete al Discord</a>
+</div>
+
+<div id="toast" role="status"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
+<script src="js/datos.js"></script>
+<script src="js/mapa-datos.js"></script>
+<script src="js/libro.js"></script>
+<script src="js/mapa.js"></script>
+</body>
+</html>
