@@ -41,7 +41,7 @@ const chName = id => channels.find(c => c.id === id)?.name ?? "";
 
 const TIPOS = { leveo: "Leveo", mazmorra: "Mazmorra", banda: "Banda", raid: "Banda", quedada: "Quedada" };
 
-const eventos = raw.map(e => {
+let eventos = raw.map(e => {
   const m = e.name.match(/^\s*\[([^\]]+)\]\s*(.*)$/);
   const tipo = m ? (TIPOS[m[1].trim().toLowerCase()] ?? "Quedada") : "Quedada";
   return {
@@ -55,6 +55,64 @@ const eventos = raw.map(e => {
     enlace: `https://discord.com/events/${GUILD}/${e.id}`,
   };
 }).sort((a, b) => a.inicio.localeCompare(b.inicio));
+
+// ---------- Posts del foro de expediciones ----------
+// Cada post del foro "expediciones" sale en el calendario si su título lleva fecha:
+//   [Mazmorra] 16/11 19:00 Ruinas de Lordaeron
+//   [Banda] 22/11/2026 21:30 Núcleo de Magma
+//   Minas de la Muerte 18/11 18:00            (sin corchetes → tipo por etiqueta del foro o Quedada)
+// La hora se entiende en hora de España. Sin hora → 20:00. Sin fecha → no sale.
+const ZONA = "Europe/Madrid";
+function aISO(dia, mes, anyo, h, min) {
+  // calcula el desfase de Madrid para esa fecha (invierno +01:00, verano +02:00)
+  const guess = new Date(Date.UTC(anyo, mes - 1, dia, h, min));
+  const enMadrid = new Date(guess.toLocaleString("en-US", { timeZone: ZONA }));
+  const enUTC = new Date(guess.toLocaleString("en-US", { timeZone: "UTC" }));
+  return new Date(guess.getTime() - (enMadrid - enUTC)).toISOString();
+}
+try {
+  const foro = channels.find(c => c.type === 15 && /expedicion/i.test(c.name));
+  if (foro) {
+    const etiqueta = id => foro.available_tags?.find(t => t.id === id)?.name ?? "";
+    const hilos = [];
+    const act = await fetch(`https://discord.com/api/v10/guilds/${GUILD}/threads/active`, { headers: { Authorization: `Bot ${TOKEN}` } });
+    if (act.ok) hilos.push(...(await act.json()).threads.filter(t => t.parent_id === foro.id));
+    const arc = await fetch(`https://discord.com/api/v10/channels/${foro.id}/threads/archived/public?limit=50`, { headers: { Authorization: `Bot ${TOKEN}` } });
+    if (arc.ok) hilos.push(...(await arc.json()).threads);
+    const vistos = new Set(), ahora = new Date(), deForo = [];
+    for (const t of hilos) {
+      if (vistos.has(t.id)) continue; vistos.add(t.id);
+      let nombre = t.name;
+      let tipo = null;
+      const br = nombre.match(/^\s*\[([^\]]+)\]\s*/);
+      if (br) { tipo = TIPOS[br[1].trim().toLowerCase()] ?? null; nombre = nombre.slice(br[0].length); }
+      if (!tipo) for (const id of t.applied_tags ?? []) { const k = etiqueta(id).toLowerCase().replace(/[^a-záéíóú]/g, ""); if (TIPOS[k]) { tipo = TIPOS[k]; break; } }
+      const f = nombre.match(/(\d{1,2})[\/\-.](\d{1,2})(?:[\/\-.](\d{2,4}))?/);
+      if (!f) continue;
+      const hm = nombre.slice(f.index + f[0].length).match(/(\d{1,2})[:.h](\d{2})/) ?? nombre.match(/(\d{1,2}):(\d{2})/);
+      const dia = +f[1], mes = +f[2];
+      let anyo = f[3] ? (+f[3] < 100 ? 2000 + +f[3] : +f[3]) : ahora.getFullYear();
+      if (!f[3] && new Date(anyo, mes - 1, dia) < new Date(ahora - 60 * 864e5)) anyo++;
+      const inicio = aISO(dia, mes, anyo, hm ? +hm[1] : 20, hm ? +hm[2] : 0);
+      if (new Date(inicio) < new Date(ahora - 2 * 864e5)) continue; // ya pasó
+      let titulo = nombre.replace(f[0], "");
+      if (hm) titulo = titulo.replace(hm[0], "");
+      titulo = titulo.replace(/\s*(a las|·|-|–|—)\s*$/i, "").replace(/^\s*(·|-|–|—)\s*/, "").replace(/\s{2,}/g, " ").trim();
+      deForo.push({
+        titulo: titulo || "Expedición", tipo: tipo ?? "Quedada", inicio, fin: null,
+        lugar: "Foro de expediciones", foro: true, descripcion: "", apuntados: 0,
+        enlace: `https://discord.com/channels/${GUILD}/${t.id}`,
+      });
+    }
+    // si ya existe un Evento de Discord con el mismo título y día, no lo duplicamos
+    const clave = e => e.titulo.toLowerCase().replace(/[^a-z0-9]/g, "") + e.inicio.slice(0, 10);
+    const ya = new Set(eventos.map(clave));
+    eventos = eventos.concat(deForo.filter(e => !ya.has(clave(e)))).sort((a, b) => a.inicio.localeCompare(b.inicio));
+    console.log(`Foro de expediciones: ${deForo.length} posts con fecha`);
+  }
+} catch (e) {
+  console.error("No se pudo leer el foro de expediciones:", e.message);
+}
 
 await writeFile("eventos.json", JSON.stringify(eventos, null, 2) + "\n");
 console.log(`Guardados ${eventos.length} eventos en eventos.json`);

@@ -171,7 +171,7 @@ const evColor = e => TYPE_COLORS[e.tipo] || TYPE_COLORS.Quedada;
 function evHTML(e){ const d = e._start;
   return `<div class="ev"><div class="date" style="background:${evColor(e)}"><b>${d.getDate()}</b><small>${fmtMon.format(d).replace('.','')}</small></div>
     <div><div class="t">${esc(e.titulo)}</div>
-      <div class="m">${fmtTime.format(d)}${e._end?'–'+fmtTime.format(e._end):''} · ${esc(e.tipo||'Quedada')}${e.lugar?' · 🔊 '+esc(e.lugar):''}${e.apuntados?` · ${e.apuntados} apuntados`:''}</div>
+      <div class="m">${fmtTime.format(d)}${e._end?'–'+fmtTime.format(e._end):''} · ${esc(e.tipo||'Quedada')}${e.lugar?' · '+(e.foro?'📜 ':'🔊 ')+esc(e.lugar):''}${e.apuntados?` · ${e.apuntados} apuntados`:''}</div>
       ${e.descripcion?`<div class="d">${esc(e.descripcion)}</div>`:''}
       <a href="${esc(e.enlace||DISCORD_URL)}" target="_blank" rel="noopener">Apuntarme en Discord →</a></div></div>`; }
 function renderEvList(){
