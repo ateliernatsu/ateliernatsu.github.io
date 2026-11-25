@@ -168,6 +168,14 @@
   },
   {
     "nombres": [
+      "Izan",
+      "izanmb_"
+    ],
+    "rango": "aprendiz",
+    "forever": true
+  },
+  {
+    "nombres": [
       "Rita",
       "Kvano",
       "kvan0"
